@@ -1,8 +1,8 @@
 :root{
-  --darker: #06090b;
-  --dark: #090e11;
-  --theme: #0070bb;
-  --light: #e5f4ff;
+  --darker: #03080a;
+  --dark: #071013;
+  --theme: #623cea;
+  --light: #17bebb;
   --lighter: #ffffff;
 }
 * {
@@ -14,15 +14,15 @@
 }
 @font-face {
   font-family: font2;
-  src: url(/assets/kalam.ttf);
+  src: url(/assets/rcr.ttf);
 }
 body {
   font-family: font1;
   padding: 0px;
   margin: 0px;
   font-size: 4mm;
-  background: var(--light);
-  color: var(--dark);
+  background: var(--darker);
+  color: var(--lighter);
 }
 
 
@@ -224,14 +224,16 @@ header{
   display: grid;
   grid-template-columns: 1fr auto;
   grid-row-gap: 2mm;
-  background: var(--darker);
+  background: var(--dark);
   top: 0;
   width: 100%;
   padding: 2mm;
 }
-header>img{
-  height: 8mm;
-  width: auto;
+header>span{
+  display: inline-block;
+  padding: 1mm;
+  font-size: 5mm;
+  color: var(--theme);
 }
 header>input{
   display: none;
@@ -288,4 +290,33 @@ header input:checked ~ nav{
 @keyframes fadein{
   from{opacity: 0;}
   to{opacity: 1;}
+}
+
+#appContainer{
+  display: block;
+  margin: 0;
+  padding: 5mm;
+}
+section.item{
+  background: var(--dark);
+  border-radius: 2mm;
+  margin: 5mm 0mm;
+}
+section.add{
+  padding: 5mm;
+  grid-gap: 5mm;
+}
+section.add input, section.add button{
+  background: var(--dark);
+  color: var(--lighter);
+  border: none;
+  outline: none;
+  font-family: font1;
+  font-size: 5mm;
+  margin: 5mm 0mm;
+  border-radius: 2mm;
+}
+section.add button{
+  border-radius: 20mm;
+  background: var(--theme);
 }

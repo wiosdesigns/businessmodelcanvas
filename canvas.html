@@ -1,0 +1,109 @@
+<html>
+<head>
+  <title>Business Model Canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/png" href="/assets/icon.png"/>
+  <link rel="stylesheet" type="text/css" href="/styles/spicygrid.css"/>
+  <script src="/scripts/vue.min.js"></script>
+  <script src="/scripts/canvas.js"></script>
+  <style>
+    header{
+      background: var(--darker);
+    }
+    #appContainer{
+      display: grid;
+      grid-template-columns: repeat(10,1fr); 
+      grid-template-rows: auto auto auto;
+    }
+    #appContainer>div{
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 6cm;
+    }
+    #appContainer>div>h3{
+      color: var(--theme);
+    }
+    #appContainer>div>textarea{
+      background: var(--dark);
+      border: 0.5mm solid var(--dark);
+      border-radius: 2mm;
+      color: var(--lighter);
+      padding: 2mm;
+      font-family: font1;
+      font-size: 5mm;
+      width: 100%;
+    }
+    #appContainer>div>textarea:focus{
+      background: var(--darker);
+      color: var(--theme);
+      outline: none;
+    }
+    @media only screen and (max-width: 200mm) {
+      #appContainer{
+        display: block;
+        width: 100%;
+      }
+      #appContainer>div{
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body onload="canvas()">
+  <img src="/assets/menuon.svg" style="display: none;">
+    
+  <header>
+    <span>Business Model Canvas</span>
+    <input type="checkbox" id="menutoggle">
+    <label for="menutoggle"></label>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="https://wiosdesigns.xyz">by WIOS Designs</a>
+      <a href="https://github.com/wiosdesigns/businessmodelcanvas/">Code on GitHub</a>
+    </nav>
+  </header>
+  
+  <div id="appContainer" onkeyup="app.save()">
+    <div class="box1 field" style="grid-area: 1 / 1 / 3 / 3">
+      <h3>Key Partners</h3>
+      <textarea v-model="canvases[hash].partners"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 1 / 3 / 2 / 5">
+      <h3>Key Activities</h3>
+      <textarea v-model="canvases[hash].activities"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 2 / 3 / 3 / 5">
+      <h3>Key Resources</h3>
+      <textarea v-model="canvases[hash].resources"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 1 / 5 / 3 / 7">
+      <h3>Value Propositions</h3>
+      <textarea v-model="canvases[hash].value"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 1 / 7 / 2 / 9">
+      <h3>Customer Relationships</h3>
+      <textarea v-model="canvases[hash].relationships"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 2 / 7 / 3 / 9">
+      <h3>Channels</h3>
+      <textarea v-model="canvases[hash].channels"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 1 / 9 / 3 / 11">
+      <h3>Customer Segments</h3>
+      <textarea v-model="canvases[hash].segments"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 3 / 1 / 4 / 6">
+      <h3>Cost Structure</h3>
+      <textarea v-model="canvases[hash].cost"></textarea>
+    </div>
+    <div class="box1 field" style="grid-area: 3 / 6 / 4 / 11">
+      <h3>Revenue Streams</h3>
+      <textarea v-model="canvases[hash].revenue"></textarea>
+    </div>
+  </div>
+  
+</body>
+</html>
